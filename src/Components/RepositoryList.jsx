@@ -24,11 +24,9 @@ export function RepositoryList() {
       <h1>Lista de Repositórios</h1>
 
       <ul>
-        <RepositoryItem repository={repositoryData}/>
-        <RepositoryItem/>
-        <RepositoryItem/>
-        <RepositoryItem repository={repositoryData}/>
-        <RepositoryItem/>
+        {repositories.map(repository => {
+          return <RepositoryItem key={repository.name} repository={repository} />
+        })}
       </ul>
     </section>
   );
