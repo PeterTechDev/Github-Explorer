@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import { RepositoryItem } from "./RepositoryItem"
+
 import '../styles/repositories.scss';
 
-// https://api.github.com/users/petertechdev/repos
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
+}
 
 const repositoryData = {
-  name: 'unform',
+  name: 'inform',
   description: 'Forms in React',
   link: 'https://github.com/petertechdev'
 }
 
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() =>{
     fetch('https://api.github.com/users/petertechdev/repos')
