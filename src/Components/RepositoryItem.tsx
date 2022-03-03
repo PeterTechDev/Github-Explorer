@@ -1,4 +1,4 @@
-interface RepositoryItemProps {
+type RepositoryItemProps = {
   repository: {
     name: string;
     description: string;
@@ -12,7 +12,9 @@ export function RepositoryItem(props: RepositoryItemProps) {
     <strong>{props.repository?.name }</strong>
     <p>{props.repository?.description ?? 'Default'}</p>
 
-    <a href={props.repository.html_url}>
+    <p>{props.repository}</p>
+
+    <a href={props.repository.anything}>
       Acessar repositório
     </a>
   </li>
